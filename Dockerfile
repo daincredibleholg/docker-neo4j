@@ -7,10 +7,11 @@ maintainer Holger Steinhauer, hlibrenz@gmail.com
 # Import neo4j signing key
 # Create an apt sources.list file
 # Find out about the files in neo4j repo ; install neo4j community edition
+env NEO4J_DEB_VERSION="2.3.0.M01"
 
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo testing/' > /etc/apt/sources.list.d/neo4j.list && \
-    apt-get update ; apt-get install neo4j-advanced -y
+    apt-get update ; apt-get install neo4j-advanced=${NEO4J_DEB_VERSION} -y
 
 ## add launcher and set execute property
 ## clean sources
